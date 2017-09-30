@@ -3,7 +3,7 @@ This repository was made to store and guide my studies about parallel computing 
 
 **Table of Contents**
  - [Parallel Communication](#parallel-communication)
- - [GPU Hardware Design](#gpu-hardware-design)
+ - [CUDA Guarantees](#cuda-guarantees)
 
 ## Parallel Communication
 Parallel Programmming Paradigm requires
@@ -24,7 +24,30 @@ some special communication design between GPU threads.
   <img src="./Resources/parallel-patterns.png" width="350"/>
 </p>
 
+## Leaning About GPU and CUDA
 
-## GPU Hardware Design
+### GPU Hardware
+  - In high level, GPU is a bunch of Streaming  Multiprocessors (SM)
+  - GPU is responsible to allocate blocks of SM's
+  - An SM may can run more than one thread block
+  - Some thread block can't be executed on more than one SM
+  - Have 3 types of memory inside of an GPU (local memory, shared memory ,  global memory)
+  - Only each thread can acess data stored in their own local memory
+  - Only all threads of some block can acess their own shared memory
+  - Every thread in every block can acess data in global memory
+
+<p align="center">
+  <img src="./Resources/GPU-Hardware.png" width="350"/>
+  <br>GPU SM's Design
+</p>
+<p align="center">
+  <img src="./Resources/GPU-memory.png" width="350">
+  <br>GPU Memory Design
+</p>
+
+### CUDA Guarantees
+ - A thread block is a group of threads that cooperate to solve a sub-problem
+ - All threads in a block run on the same SM at the same time
+ - All blocks in a kernel finish before any blocks from the next kernel run
 
 
