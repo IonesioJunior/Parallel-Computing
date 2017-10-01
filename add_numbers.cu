@@ -41,7 +41,7 @@ void call_2d_parallel_computing(void)
 
 	cudaMemcpy(d_2d_in,h_2d_in,BYTES_SIZE,cudaMemcpyHostToDevice);
 
-	dim3 dimBlock(N_COLS,N_ROWS);
+	dim3 dimBlock(N_ROWS,N_COLS);
 	dim3 dimGrid(1,1);
 
 	add_2d_numbers<<<dimGrid,dimBlock>>>(d_2d_out,d_2d_in);
@@ -49,8 +49,10 @@ void call_2d_parallel_computing(void)
 	cudaMemcpy(h_2d_out,d_2d_out,BYTES_SIZE,cudaMemcpyDeviceToHost);	
 
 	printf("Result : \n" );
-	for(int i = 0 ; i < N_ROWS;i++){
-		for(int j = 0 ; j < N_COLS;j++){
+	for(int i = 0 ; i < N_ROWS;i++)
+	{
+		for(int j = 0 ; j < N_COLS;j++)
+		{
 			printf("%d ",h_2d_out[i][j]);
 		}
 		printf("\n");
