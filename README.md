@@ -3,7 +3,7 @@ This repository was made to store and guide my studies about parallel computing 
 
 **Table of Contents**
  - [Parallel Communication](#parallel-communication)
- - [CUDA Guarantees](#cuda-guarantees)
+ - [Learning About GPU and CUDA](#learning-about-gpu-and-cuda)
 
 ## Parallel Communication
 Parallel Programmming Paradigm requires
